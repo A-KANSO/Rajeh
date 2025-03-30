@@ -1,0 +1,60 @@
+Error extracting SMTP data (Binascii): Incorrect padding
+Error extracting SMTP data (Binascii): Invalid base64-encoded string: number of data characters (9) cannot be 1 more than a multiple of 4
+Error extracting SMTP data (Binascii): Incorrect padding
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd3 in position 2: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xc0 in position 2: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd7 in position 1: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xa5 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd8 in position 1: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xcb in position 1: unexpected end of data
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xdb in position 0: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x96 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xac in position 2: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xb2 in position 3: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xa6 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xad in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x95 in position 0: invalid start byte
+Error extracting SMTP data (Binascii): Incorrect padding
+Error extracting SMTP data (Binascii): Incorrect padding
+Error extracting SMTP data (Binascii): Invalid base64-encoded string: number of data characters (9) cannot be 1 more than a multiple of 4
+Error extracting SMTP data (Binascii): Incorrect padding
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd3 in position 2: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xc0 in position 2: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd7 in position 1: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xa5 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd8 in position 1: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xcb in position 1: unexpected end of data
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xdb in position 0: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x96 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xac in position 2: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xb2 in position 3: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xa6 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xad in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x95 in position 0: invalid start byte
+Error extracting SMTP data (Binascii): Incorrect padding
+Error extracting SMTP data (Binascii): Incorrect padding
+Error extracting SMTP data (Binascii): Invalid base64-encoded string: number of data characters (9) cannot be 1 more than a multiple of 4
+Error extracting SMTP data (Binascii): Incorrect padding
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd3 in position 2: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xc0 in position 2: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd7 in position 1: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xa5 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xd8 in position 1: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xba in position 1: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xcb in position 1: unexpected end of data
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xdb in position 0: invalid continuation byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x96 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xac in position 2: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xb2 in position 3: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xa6 in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0xad in position 0: invalid start byte
+Error decoding SMTP data (Unicode): 'utf-8' codec can't decode byte 0x95 in position 0: invalid start byte
+Error extracting SMTP data (Binascii): Incorrect padding
